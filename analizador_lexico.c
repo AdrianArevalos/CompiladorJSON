@@ -46,13 +46,13 @@ void sigLex() {
     
 	while((caracter = fgetc(archivo)) != EOF) {
 		if (caracter == ' ')             
-            printf(" ");  
+            continue;  
         else if(caracter == '\t')        
-            printf("\t");
+            continue;
 		else if(caracter == '\n') {
 			//Incrementar el numero de linea
 			numLinea++;
-            printf("\n");
+            continue;
 		}
 		else if (isalpha(caracter)) {
 			//Se espera recibir una palabra reservada
@@ -300,7 +300,7 @@ void sigLex() {
 	
     if (caracter == EOF){
 		tok.compLex = EOF;
-        exit(1);
+        //exit(1);
     }
         
 	
@@ -327,7 +327,8 @@ void palabra_reservada(char cadena []){
        	error(cadenaError);
     }
 }
-int main(int argc,char* args[]) {
+
+/*int main(int argc,char* args[]) {
 	
 	if(argc > 1) {
 		if (!(archivo = fopen(args[1],"rt"))) {
@@ -346,4 +347,4 @@ int main(int argc,char* args[]) {
 	}
 
 	return 0;
-}
+}*/
